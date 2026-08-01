@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Signup - Ultimate Career Hub</title>
+  <link href="style.css" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.4.120/pdf.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.6/require.min.js"></script>
+</head>
+
+<body>
+
+  <header>
+    <h1>Ultimate Career Hub</h1>
+    <p>Create your account to start saving progress and jobs!</p>
+    <nav>
+      <ul>
+        <li><a href="login.html">Login</a></li>
+        <li><a href="contact.html">Contact Us</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <section>
+          <section class="resume-section">
+      <h2>📝 Signup</h2>
+      <form id="signupForm" class="contact-form">
+        <input type="text" id="signupName" placeholder="👤 Full Name" required>
+        <input type="email" id="signupEmail" placeholder="📧 Email" required>
+        <input type="password" id="signupPassword" placeholder="🔒 Password" required>
+        <button type="submit" class="btn search-btn">🚀 Create Account</button>
+      </form>
+    </section>
+    </section>
+  </main>
+
+  <section>
+    <footer class="footer">
+      <div class="footer-container">
+        <!-- Column 1: Logo and About -->
+        <div class="footer-column">
+          <h2 class="footer-logo">Ultimate Career <span>Hub</span></h2>
+          <p>Your one-stop platform for career growth, job hunting, and interview mastery.</p>
+        </div>
+    
+        <!-- Column 2: Quick Links -->
+        <div class="footer-column">
+          <h3>Quick Links</h3>
+          <ul class="footer-links">
+            <li><a href="roadmap.html">Career Roadmap</a></li>
+          <li><a href="jobs.html">Internships & Jobs</a></li>
+          <li><a href="interview.html">Interview Prep</a></li>
+          <li><a href="resume.html">Resume Review</a></li>
+          </ul>
+        </div>
+    
+        <!-- Column 3: Connect -->
+        <div class="footer-column">
+          <h3>Connect</h3>
+          <p>Email: <a href="mailto:support@careerhub.com">support@careerhub.com</a></p>
+          <div class="footer-social">
+            <a href="#"><i class="fab fa-linkedin"></i></a>
+            <a href="#"><i class="fab fa-github"></i></a>
+            <a href="#"><i class="fab fa-twitter"></i></a>
+          </div>
+        </div>
+      </div>
+    
+      <div class="footer-bottom">
+        <p>CopyRight &copy; 2025 Ultimate Career Hub. All rights reserved.</p>
+         <p>Devloped By - Saurabh</p>
+      </div>
+    
+      <button class="back-to-top" onclick="scrollToTop()">
+        <i class="fas fa-chevron-up"></i>
+      </button>
+    </footer>
+  </section>
+
+  <script>
+    document.getElementById("signupForm").addEventListener("submit", e => {
+      e.preventDefault();
+
+      const name = document.getElementById("signupName").value;
+      const email = document.getElementById("signupEmail").value;
+      const password = document.getElementById("signupPassword").value;
+
+      const users = JSON.parse(localStorage.getItem("users") || "[]");
+
+      if (users.find(user => user.email === email)) {
+        alert("User already exists with this email!");
+        return;
+      }
+
+      users.push({ name, email, password });
+      localStorage.setItem("users", JSON.stringify(users));
+      localStorage.setItem("loggedInUser", JSON.stringify({ name, email }));
+
+      alert("🎉 Account created! Redirecting to dashboard...");
+      window.location.href = "dashboard.html";
+    });
+  </script>
+  <script src="main.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Interview Prep</title>
+  <link href="style.css" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.4.120/pdf.min.js"></script>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.6/require.min.js"></script>
+
+</head>
+
+<body>
+
+  <header>
+    <h1>Ultimate Career Hub</h1>
+    <p>Your one-stop portal for roadmaps, jobs, interviews & resume tips</p>
+    <nav>
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="roadmap.html">Career Roadmap</a></li>
+        <li><a href="jobs.html">Internships & Jobs</a></li>
+        <li><a href="interview.html">Interview Prep</a></li>
+        <li><a href="resume.html">Resume Tips</a></li>
+        <li><a href="chatbot.html">Mock Interview Bot</a></li>
+        <li><a href="coding.html">Practice Coding</a></li>
+                <li><a href="dashboard.html">Dashboard</a></li>
+        <li><a href="contact.html">Contact Us</a></li>
+        <span id="userLinks" style="display: none;">
+          <li><span id="navbarUser"></span></li>
+          <li><a href="#" id="logoutBtn">Logout</a></li>
+        </span>
+
+
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <section>
+      <section id="interview">
+        <h2>Interview Preparation Hub</h2>
+        <p>Practice with common interview questions and answers.</p>
+
+        <div class="tab-buttons">
+          <button onclick="showTab('technical')" class="active">💻 Technical</button>
+          <button onclick="showTab('hr')">🧠 HR</button>
+        </div>
+
+        <div id="technical" class="qa-tab active-tab enhanced-roadmap">
+          <h3>💻 Technical Questions</h3>
+          <div class="horizontal-roadmap">
+            <div class="step-card" data-tooltip="JavaScript Concept">
+              <div class="icon">🔧</div>
+              <p>What is a closure in JavaScript?</p>
+              <small>A closure is a function that remembers its outer variables even after the outer function has
+                returned.</small>
+            </div>
+            <div class="step-card" data-tooltip="Database Theory">
+              <div class="icon">🗄️</div>
+              <p>Explain normalization in databases.</p>
+              <small>Normalization reduces redundancy and improves integrity in databases by organizing data
+                efficiently.</small>
+            </div>
+            <div class="step-card" data-tooltip="Comparison Operator">
+              <div class="icon">🧮</div>
+              <p>Difference between == and ===?</p>
+              <small>== compares values loosely, === checks type and value (strict equality).</small>
+            </div>
+            <div class="step-card" data-tooltip="API Design">
+              <div class="icon">📡</div>
+              <p>Explain REST vs GraphQL</p>
+              <small>REST uses fixed endpoints; GraphQL lets clients query exactly what they need.</small>
+            </div>
+            <div class="step-card" data-tooltip="OOP Concepts">
+              <div class="icon">🧱</div>
+              <p>Four pillars of OOP?</p>
+              <small>Encapsulation, Abstraction, Inheritance, Polymorphism.</small>
+            </div>
+            <div class="step-card" data-tooltip="Data Structures">
+              <div class="icon">📐</div>
+              <p>What is binary search?</p>
+              <small>A divide-and-conquer algorithm to find elements in sorted arrays. O(log n).</small>
+            </div>
+          </div>
+        </div>
+
+        <div id="hr" class="qa-tab enhanced-roadmap">
+          <h3>🧠 HR Questions</h3>
+          <div class="horizontal-roadmap">
+            <div class="step-card" data-tooltip="Introductory Question">
+              <div class="icon">👤</div>
+              <p>Tell me about yourself.</p>
+              <small>Start with a brief intro, your education, skills, and career goals relevant to the role.</small>
+            </div>
+            <div class="step-card" data-tooltip="Self-Assessment">
+              <div class="icon">⚖️</div>
+              <p>What are your strengths and weaknesses?</p>
+              <small>Share a genuine strength with examples and a weakness you're improving.</small>
+            </div>
+            <div class="step-card" data-tooltip="Future Vision">
+              <div class="icon">🔮</div>
+              <p>Where do you see yourself in 5 years?</p>
+              <small>Discuss your goals aligned with growth and learning in the company.</small>
+            </div>
+            <div class="step-card" data-tooltip="Persuasion">
+              <div class="icon">🎯</div>
+              <p>Why should we hire you?</p>
+              <small>Highlight your unique skills, adaptability, and passion for the role.</small>
+            </div>
+            <div class="step-card" data-tooltip="Conflict Handling">
+              <div class="icon">🤝</div>
+              <p>How do you handle team conflict?</p>
+              <small>Share an example of resolving conflict with communication and understanding.</small>
+            </div>
+            <div class="step-card" data-tooltip="Failure Handling">
+              <div class="icon">📉</div>
+              <p>Tell me about a time you failed.</p>
+              <small>Explain the situation, what you learned, and how it helped you grow.</small>
+            </div>
+          </div>
+        </div>
+      </section>
+    </section>
+
+    <section>
+      <section id="question-bank">
+        <h2>🧠 Question Bank + Flashcards</h2>
+
+        <!-- Filter Bar -->
+        <div class="filter-bar">
+          
+            <select id="filterCategory">
+              <option value="">📂 Category</option>
+              <option value="DSA">DSA</option>
+              <option value="System Design">System Design</option>
+              <option value="Behavioral">Behavioral</option>
+            </select>
+
+            <select id="filterCompany">
+              <option value="">🏢 Company</option>
+              <option value="Google">Google</option>
+              <option value="Amazon">Amazon</option>
+            </select>
+
+            <select id="filterDifficulty">
+              <option value="">🎯 Difficulty</option>
+              <option value="Easy">Easy</option>
+              <option value="Medium">Medium</option>
+              <option value="Hard">Hard</option>
+            </select>
+      
+          <button onclick="filterQuestions()">🔍 Filter</button>
+          <button onclick="toggleFlashcardMode()">🃏 Toggle Flashcards</button>
+        </div>
+
+        <!-- Question Cards -->
+        <div id="questionContainer" class="question-container"></div>
+      </section>
+    </section>
+  </main>
+
+  <section>
+    <footer class="footer">
+      <div class="footer-container">
+        <!-- Column 1: Logo and About -->
+        <div class="footer-column">
+          <h2 class="footer-logo">Ultimate Career <span>Hub</span></h2>
+          <p>Your one-stop platform for career growth, job hunting, and interview mastery.</p>
+        </div>
+
+        <!-- Column 2: Quick Links -->
+        <div class="footer-column">
+          <h3>Quick Links</h3>
+          <ul class="footer-links">
+            <li><a href="roadmap.html">Career Roadmap</a></li>
+            <li><a href="jobs.html">Internships & Jobs</a></li>
+            <li><a href="interview.html">Interview Prep</a></li>
+            <li><a href="resume.html">Resume Review</a></li>
+          </ul>
+        </div>
+
+        <!-- Column 3: Connect -->
+        <div class="footer-column">
+          <h3>Connect</h3>
+          <p>Email: <a href="mailto:support@careerhub.com">support@careerhub.com</a></p>
+          <div class="footer-social">
+            <a href="#"><i class="fab fa-linkedin"></i></a>
+            <a href="#"><i class="fab fa-github"></i></a>
+            <a href="#"><i class="fab fa-twitter"></i></a>
+          </div>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <p>CopyRight &copy; 2025 Ultimate Career Hub. All rights reserved.</p>
+         <p>Devloped By - Saurabh</p>
+      </div>
+
+      <button class="back-to-top" onclick="scrollToTop()">
+        <i class="fas fa-chevron-up"></i>
+      </button>
+    </footer>
+  </section>
+  <script src="main.js"></script>
+  <script src="auth.js"></script>
+</body>
+
+</html>
